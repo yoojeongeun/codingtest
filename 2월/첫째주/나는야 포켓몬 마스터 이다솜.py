@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/1620
-# 백준 1620 
+# 백준 1620
 
 from sys import stdin
 
