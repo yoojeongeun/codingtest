@@ -6,26 +6,26 @@ def count_cnt(now, destination):
     if now == destination:
         return 0
 
-    visit = []
+    visit = [False]*100001
     parent, cnt = [now], 1
-    temp = [-1, 1, 2]
     while True:
         child = []
         for i in parent:
-            for j in temp:
+            for j in [-1, 1, 2]:
                 if j == 2:
                     if i*j == destination:
                         return cnt
-                    if destination // 2 <= i*j and i*j not in visit:
+                    if i*j <= 100000 and i*j >= 0 and not visit[i*j]:
                         child.append(i*j)
-                        visit.append(i*j)
+                        visit[i*j] = True
                 else:
                     if i+j == destination:
                         return cnt
-                    if destination // 2 <= i+j and i+j not in visit:
+                    if i+j <= 100000 and i+j >= 0 and not visit[i+j]:
                         child.append(i+j)
-                        visit.append(i+j)
+                        visit[i+j] = True
         cnt += 1
         parent = child
+
 
 print(count_cnt(now, destination))
