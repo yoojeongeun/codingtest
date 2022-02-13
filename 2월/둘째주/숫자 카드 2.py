@@ -11,7 +11,5 @@ M = int(stdin.readline())
 answer = list(map(int, stdin.readline().split()))
 
 for ans in answer:
-    if ans not in number:
-        print(0, end=' ')
-        continue
     print(number[ans], end=' ')
+
